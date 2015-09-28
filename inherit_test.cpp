@@ -38,3 +38,49 @@ int B::superTest()
 {
 	return -1;
 }
+
+Meme::Meme(const string &name, const int &year)
+{
+	memeName = new string(name);
+	memeYear = new int(year);
+}
+
+virtual Meme::~Meme()
+{
+	delete memeName;
+	delete memeYear;
+
+	memeName = NULL;
+	memeYear = NULL;
+}
+
+string Meme::getName() const
+{
+	return *memeName;
+}
+
+int Meme::getYear() const
+{
+	return *memeYear;
+}
+
+Doge::Doge(const string &name, const int &year) : Meme(name, year)
+{
+	noise = new string("Much very wowe\n");
+}
+
+Doge::Doge(const string &name, const int &year, const string &noise) : Meme(name, year)
+{
+	this->noise = new string(noise);
+}
+
+Doge::getName()
+{
+	return *noise;
+}
+
+Doge::~Doge()
+{
+	delete noise;
+	noise = NULL;
+}
