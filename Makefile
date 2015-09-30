@@ -10,10 +10,10 @@ all: comp
 
 comp: main main-asan
 
-main: main.cpp temp_test.cpp temp_test.h $(DEP_OBJS)
+main: main.cpp temp_test.cpp temp_test.h linked_list.cpp linked_list.hpp $(DEP_OBJS)
 	$(LD) $(DEP_OBJS) $< $(LDFLAGS) -o $@
 
-main-asan: main.cpp temp_test.cpp temp_test.h $(DEP_OBJS)
+main-asan: main.cpp temp_test.cpp temp_test.h linked_list.cpp linked_list.hpp $(DEP_OBJS)
 	$(LD) $(DEP_OBJS) $< $(LDFLAGS) $(ASANFLAGS) -o $@
 
 $(DEP_OBJS): inherit_test.cpp inherit_test.h
