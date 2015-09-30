@@ -45,7 +45,7 @@ Meme::Meme(const string &name, const int &year)
 	memeYear = new int(year);
 }
 
-virtual Meme::~Meme()
+Meme::~Meme()
 {
 	delete memeName;
 	delete memeYear;
@@ -74,7 +74,7 @@ Doge::Doge(const string &name, const int &year, const string &noise) : Meme(name
 	this->noise = new string(noise);
 }
 
-Doge::getName()
+string Doge::getName() const
 {
 	return *noise;
 }
